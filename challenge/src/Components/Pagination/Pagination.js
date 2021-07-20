@@ -5,7 +5,10 @@ function Pagination({postsPerPage, totalPosts, paginate}){
     const pageNumbers = [];
     const [activeIndex, setActiveIndex] = useState(0);
     
-
+    useEffect(()=>{
+        setActiveIndex(0)
+    },[totalPosts])
+    
     //calculate of quantity of pages
     for (let i = 1; i <= Math.ceil(totalPosts/[postsPerPage]); i++) {
         pageNumbers.push(i);
