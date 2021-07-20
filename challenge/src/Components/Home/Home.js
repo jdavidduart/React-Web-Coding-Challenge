@@ -6,7 +6,7 @@ import Loading from '../Loading/Loading';
 import Pagination from '../Pagination/Pagination';
 import datax from '../info';
 import CardGenerator from '../CardGenerator/CardGenerator';
-
+import './Home.css'
 
 function Home (){
     const baseUrl='https://bikewise.org:443/api/v2/incidents?page=1&per_page=100&incident_type=theft&proximity=berlin&proximity_square=200';
@@ -96,10 +96,16 @@ function Home (){
     }
 
     return(
-        <div>
-            <h1>POLICE DEPARTAMENT OF BERLIN</h1>
-            <h2>Stolen bikes</h2>
-            <div>
+        <div className='homeContainer'>
+            <header>
+                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Berliner_Polizei.svg/1200px-Berliner_Polizei.svg.png' alt='x'></img>
+                <div>
+                <h1>POLICE DEPARTAMENT OF BERLIN</h1>
+                <h2>Stolen bikes</h2>
+                </div>
+            </header>
+
+            <div className='filterContainer'>
                 <input placeholder='Search case description' onChange={searchByTitle} value={data.searched || ''}></input>
                 <label>From:</label>
                 <DatePicker 
@@ -121,7 +127,7 @@ function Home (){
                     scrollableMonthYearDropdown
                     placeholderText="Click to select a date"                     
                 />
-                <button onClick={resetFilters}>Reset filters</button>
+                <button onClick={resetFilters} className='resetBtn'>Reset filters</button>
             </div>
             {
                 data.currentInfo.length>0 ?

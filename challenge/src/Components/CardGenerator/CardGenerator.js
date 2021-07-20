@@ -15,20 +15,20 @@ function CardGenerator ({currentPosts}){
         <div className='cardContainer'>
             {
                 currentPosts.map( (theft, index) => (
-                    <div key={index} >
-                        <div className='cardWrap'>
+                    <div key={index} className='cardWrap'>
+                        <div>
                             <img src={theft.media.image_url !== null ? theft.media.image_url : 'https://www.pngitem.com/pimgs/m/193-1937226_bike-png-icon-download-a-b-cycle-transparent.png'} alt='x' className='bikeImg'></img>
+                        </div>
+                        <div className='textContainer'>
+                            <h4>{theft.title}</h4>
+                            <div className='description'>{theft.description}</div>
                             <div>
-                                <h4>{theft.title}</h4>
-                                <p>{theft.description}</p>
-                                <div>
-                                    <span>Date: </span>
-                                    {    
-                                        convertTime(theft.occurred_at)
-                                    }
-                                </div>
-                                <div>{theft.address}</div>
+                                <span>Date: </span>
+                                {    
+                                    convertTime(theft.occurred_at)
+                                }
                             </div>
+                            <div>{theft.address}</div>
                         </div>
                     </div>
                 ))
