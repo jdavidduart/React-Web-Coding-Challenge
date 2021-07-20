@@ -23,14 +23,35 @@ function Pagination({postsPerPage, totalPosts, paginate}){
         });
       };
 
+    
+    const upCount = ()=>{
+        if(activeIndex+1<pageNumbers.length){
+            setActiveIndex(activeIndex + 1)
+            paginate(activeIndex + 2)
+        }
+    }
+
+    const downCount = ()=>{
+        if(activeIndex>0){
+            setActiveIndex(activeIndex - 1)
+            if(activeIndex - 1 !== 0){
+                paginate(activeIndex - 1)
+            }else{paginate(activeIndex)}
+        }
+    }
+
     //render pages
     return(
         <div className='pagination'>
-            {
-                pageNumbers.map((number, index) =>(         
-                    <span className={activeIndex === index ? 'active' : 'unActive'} key={number} onClick={() =>handleOnClick(index, number)}>{number}</span>
-                ))
-            }
+            <div>
+                <span onClick={downCount}>Prev</span>
+                {
+                    pageNumbers.map((number, index) =>(         
+                        <span className={activeIndex === index ? 'active' : 'unActive'} key={number} onClick={() =>handleOnClick(index, number)}>{number}</span>
+                    ))
+                }
+                <span onClick={upCount}>Next</span>
+            </div>
         </div>
     )
 }

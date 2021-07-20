@@ -43,10 +43,10 @@ function Home (){
     const searchByTitle = (e) =>{
         if(e.target.value.length > 2){
             const filterRes = data.currentInfo.filter( theft => theft.title.toLowerCase().includes(e.target.value.toLowerCase()))
-            setData({...data, currentInfo:filterRes, currentPage:1, searched: e.target.value})
+            setData({...data, currentInfo:filterRes, currentPage:1, searched: e.target.value, prevInfo:data.currentInfo})
         }
         else{
-            setData({...data, currentInfo:data.allInfo, searched: e.target.value, initialDate:null})
+            setData({...data, currentInfo:data.allInfo, searched: e.target.value, initialDate:null, currentPage:1})
         }
     }
     //calculate of current posts
@@ -61,10 +61,10 @@ function Home (){
         const selectedDate=parseInt((new Date(date).getTime() / 1000).toFixed(0));
         if(data.prevInfo.length===0){
             const results = data.currentInfo.filter( theft => theft.occurred_at >= selectedDate && theft.occurred_at <= data.finalDate)
-            setData({...data, initialDate:selectedDate, currentInfo:results, prevInfo: data.currentInfo})
+            setData({...data, initialDate:selectedDate, currentInfo:results, prevInfo: data.currentInfo, currentPage:1})
         }else{
             const results = data.prevInfo.filter( theft => theft.occurred_at >= selectedDate && theft.occurred_at <= data.finalDate)
-            setData({...data, initialDate:selectedDate, currentInfo:results})
+            setData({...data, initialDate:selectedDate, currentInfo:results, currentPage:1})
         }
             
     }
@@ -75,10 +75,10 @@ function Home (){
         //setData({...data, finalDate:parseInt((new Date(date).getTime() / 1000).toFixed(0))})
         if(data.prevInfo.length===0){
             const results = data.currentInfo.filter( theft => theft.occurred_at <= selectedDate && theft.occurred_at >= data.initialDate)
-            setData({...data, finalDate:selectedDate, currentInfo:results, prevInfo: data.currentInfo})
+            setData({...data, finalDate:selectedDate, currentInfo:results, prevInfo: data.currentInfo, currentPage:1})
         }else{
             const results = data.prevInfo.filter( theft => theft.occurred_at <= selectedDate && theft.occurred_at >= data.initialDate)
-            setData({...data, finalDate:selectedDate, currentInfo:results})
+            setData({...data, finalDate:selectedDate, currentInfo:results,currentPage:1})
         }
     }
 
