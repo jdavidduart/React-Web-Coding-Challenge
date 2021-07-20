@@ -22,7 +22,7 @@ function Pagination({postsPerPage, totalPosts, paginate}){
 
     //render pages
     return(
-        <div className='paginationContainer'>
+        <div className='pagination'>
             {
                 pageNumbers.map((number, index) =>(         
                     <span className={activeIndex === index ? 'active' : 'unActive'} key={number} onClick={() =>handleOnClick(index, number)}>{number}</span>

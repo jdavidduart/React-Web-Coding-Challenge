@@ -1,0 +1,24 @@
+.cardWrap{
+    display: flex;
+    height: 200px;  
+}
+
+.cardWrap p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+.bikeImg{
+    height: 200px;
+    width: 250px;
+}
+
+.cardContainer{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aqua;
+    width: 50%;
+}
