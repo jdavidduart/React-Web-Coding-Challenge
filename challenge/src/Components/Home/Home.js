@@ -17,9 +17,12 @@ function Home (){
         loading:true,
         searched:'',
         currentPage:1,
+        activeIndex:0,
         initialDate:null,
         finalDate:parseInt((new Date().getTime() / 1000).toFixed(0))
+
     });
+    const [activeIndex, setActiveIndex] = useState(0);
 
 /*     const [dateState, setDateState] = useState({
         initialDate:null,
@@ -41,13 +44,9 @@ function Home (){
  */
     //dinamic search by title
     const searchByTitle = (e) =>{
-        if(e.target.value.length > 2){
-            const filterRes = data.currentInfo.filter( theft => theft.title.toLowerCase().includes(e.target.value.toLowerCase()))
-            setData({...data, currentInfo:filterRes, currentPage:1, searched: e.target.value, prevInfo:data.currentInfo})
-        }
-        else{
-            setData({...data, currentInfo:data.allInfo, searched: e.target.value, initialDate:null, currentPage:1})
-        }
+        const filterRes = data.allInfo.filter( theft => theft.title.toLowerCase().includes(e.target.value.toLowerCase()))
+        setData({...data, currentInfo:filterRes, currentPage:1, searched: e.target.value, prevInfo:data.currentInfo})
+
     }
     //calculate of current posts
     const postsPerPage = 10;
@@ -93,6 +92,7 @@ function Home (){
             initialDate:null,
             finalDate:parseInt((new Date().getTime() / 1000).toFixed(0))    
         })
+        setActiveIndex(0)
     }
 
     return(
@@ -115,7 +115,7 @@ function Home (){
                     maxDate={new Date (data.finalDate * 1000)}
                     showYearDropdown
                     scrollableMonthYearDropdown
-                    placeholderText="Click to select a date"                     
+                    placeholderText="Click to select a date"      
                 />
                 <label>To:</label>
                 <DatePicker 
@@ -133,7 +133,7 @@ function Home (){
                 data.currentInfo.length>0 ?
                 <div>
                     <CardGenerator currentPosts={currentPosts}/>
-                    <Pagination postsPerPage={postsPerPage} totalPosts={data.currentInfo.length} paginate={paginate}/>
+                    <Pagination postsPerPage={postsPerPage} totalPosts={data.currentInfo.length} paginate={paginate} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
                 </div>
                 :
                 <h3>Results not found, try again</h3>

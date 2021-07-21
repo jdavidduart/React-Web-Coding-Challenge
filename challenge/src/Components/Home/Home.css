@@ -10,7 +10,6 @@
 
 .homeContainer header img{
     height: 150px;
-
 }
 
 .homeContainer header div{
@@ -26,6 +25,7 @@
 .filterContainer input{
     margin: 10px;
     height: 30px;
+    width: auto;
     border-radius: 5px;
     border: 2px solid lightblue;
     outline: none;
@@ -56,4 +56,8 @@
     background-color: rgb(109, 141, 184);
     transform: scale(1.05);
     
+}
+
+.container{
+    width: 10%;
 }

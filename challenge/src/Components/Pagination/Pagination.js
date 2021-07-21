@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './Pagination.css'
 
-function Pagination({postsPerPage, totalPosts, paginate}){
+function Pagination({postsPerPage, totalPosts, paginate, activeIndex, setActiveIndex}){
     const pageNumbers = [];
-    const [activeIndex, setActiveIndex] = useState(0);
+    
     
     useEffect(()=>{
         setActiveIndex(0)
@@ -15,7 +15,7 @@ function Pagination({postsPerPage, totalPosts, paginate}){
     }
 
     const handleOnClick = (index, number) => {
-        setActiveIndex(index); 
+        setActiveIndex(index)
         paginate(number)
         window.scrollTo({
           top: 0,

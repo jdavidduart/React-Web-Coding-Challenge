@@ -23,12 +23,12 @@ function CardGenerator ({currentPosts}){
                             <h4>{theft.title}</h4>
                             <div className='description'>{theft.description}</div>
                             <div>
-                                <span>Date: </span>
+                                <span className='stolen'>STOLEN: </span>
                                 {    
                                     convertTime(theft.occurred_at)
                                 }
                             </div>
-                            <div>{theft.address}</div>
+                            <div className='locationWrap'><span className='location'>Location: </span>{theft.address}</div>
                         </div>
                     </div>
                 ))

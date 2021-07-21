@@ -10,7 +10,7 @@
 
 .cardWrap:hover{
     background-color: lightblue;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .description{
@@ -43,8 +43,23 @@
     align-items: flex-start;
 }
 
+
 .textContainer h4{
     margin-bottom: 10px;
     margin-top: 0px;
     text-align: start;
+    color: rgb(6, 142, 206);
+}
+
+.stolen{
+    color: lightcoral;
+    font-weight: bold;
+}
+
+.location{
+    font-weight: bold;
+}
+
+.locationWrap{
+    margin-top: 8px;
 }
