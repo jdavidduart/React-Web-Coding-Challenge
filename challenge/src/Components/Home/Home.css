@@ -96,5 +96,9 @@
         height: 2rem;
         font-size: 1.5rem;
     }
+    .homeContainer header div{
+        margin-left: 0px;
+    }
+    
 
 }

@@ -103,7 +103,7 @@ function Home (){
             </header>
 
             <div className='filterContainer'>
-                <input placeholder='Search case description' onChange={searchByTitle} value={data.searched || ''}></input>
+                <input placeholder='Search case description' onChange={searchByTitle} value={data.searched || ''} data-testid='searchInput'></input>
                 <label>From:</label>
                 <DatePicker 
                     selected={data.initialDate !== null ? new Date (data.initialDate * 1000) : null} 
@@ -124,7 +124,7 @@ function Home (){
                     scrollableMonthYearDropdown
                     placeholderText="Click to select a date"                     
                 />
-                <button onClick={resetFilters} className='resetBtn'>Reset filters</button>
+                <button onClick={resetFilters} className='resetBtn' data-testid='resetBtn'>Reset filters</button>
             </div>
             {
                 data.loading === true && data.currentInfo.length === 0? <Loading/> : 
