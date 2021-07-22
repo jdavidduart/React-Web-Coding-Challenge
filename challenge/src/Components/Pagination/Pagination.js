@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import datax from '../info';
+import React, {useEffect} from 'react';
 import './Pagination.css'
 
 function Pagination({postsPerPage, totalPosts, paginate, activeIndex, setActiveIndex}){

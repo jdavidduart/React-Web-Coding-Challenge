@@ -13,7 +13,7 @@
 }
 
 .homeContainer header div{
-    margin-left: 100px;
+    margin-left: 2rem;
 }
 
 .filterContainer{
@@ -23,8 +23,8 @@
 }
 
 .filterContainer input{
-    margin: 10px;
-    height: 30px;
+    margin: 1rem;
+    height: 2rem;
     width: auto;
     border-radius: 5px;
     border: 1px solid lightblue;
@@ -41,10 +41,9 @@
 
 .resetBtn{
     all: unset;
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 10px;
     border-radius: 5px;
-    margin-left: 10px;
     font-weight: bold;
     background-color: rgb(144, 211, 238);
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
@@ -60,4 +59,42 @@
 
 .container{
     width: 10%;
+}
+
+@media (max-width: 600px){
+    .App{
+        width: auto;
+        height: 100vh;
+        font-size: 1rem;
+    }
+    .filterContainer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .filterContainer input{
+        margin: 1rem;
+        height: 2rem;
+        width: 20rem;
+        border-radius: 5px;
+        border: 1px solid lightblue;
+        outline: none;
+        transition: all 0.3s ease;
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+    .homeContainer{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .resetBtn{
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        width: 20rem;
+        height: 2rem;
+        font-size: 1.5rem;
+    }
+
 }
