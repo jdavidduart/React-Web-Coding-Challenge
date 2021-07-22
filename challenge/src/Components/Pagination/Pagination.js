@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import datax from '../info';
 import './Pagination.css'
 
 function Pagination({postsPerPage, totalPosts, paginate, activeIndex, setActiveIndex}){
@@ -7,7 +8,7 @@ function Pagination({postsPerPage, totalPosts, paginate, activeIndex, setActiveI
     
     useEffect(()=>{
         setActiveIndex(0)
-    },[totalPosts])
+    },[totalPosts, setActiveIndex])
     
     //calculate of quantity of pages
     for (let i = 1; i <= Math.ceil(totalPosts/[postsPerPage]); i++) {
@@ -43,7 +44,11 @@ function Pagination({postsPerPage, totalPosts, paginate, activeIndex, setActiveI
     //render pages
     return(
         <div className='pagination'>
-            <div>
+            {
+                pageNumbers.length === 0? 
+                <h3>Results not found, try again</h3>
+                :
+                <div>
                 <span onClick={downCount}>Prev</span>
                 {
                     pageNumbers.map((number, index) =>(         
@@ -52,6 +57,8 @@ function Pagination({postsPerPage, totalPosts, paginate, activeIndex, setActiveI
                 }
                 <span onClick={upCount}>Next</span>
             </div>
+                        
+            }
         </div>
     )
 }

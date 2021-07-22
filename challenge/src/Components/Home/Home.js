@@ -4,15 +4,15 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Loading from '../Loading/Loading';
 import Pagination from '../Pagination/Pagination';
-import datax from '../info';
+import datax from '../info';    //in case api is down
 import CardGenerator from '../CardGenerator/CardGenerator';
 import './Home.css'
 
 function Home (){
     const baseUrl='https://bikewise.org:443/api/v2/incidents?page=1&per_page=100&incident_type=theft&proximity=berlin&proximity_square=200';
     const [data, setData] = useState({
-        allInfo:datax.incidents,
-        currentInfo:datax.incidents,
+        allInfo:[],
+        currentInfo:[],
         prevInfo:[],
         loading:true,
         searched:'',
@@ -24,16 +24,13 @@ function Home (){
     });
     const [activeIndex, setActiveIndex] = useState(0);
 
-/*     const [dateState, setDateState] = useState({
-        initialDate:null,
-        finalDate:parseInt((new Date().getTime() / 1000).toFixed(0))
-    }) */
 
-/*     useEffect(()=>{
+    useEffect(()=>{
         const getData = async function(){
             try {
                 const results = await axios.get(baseUrl)
-                setData({...data, allInfo: results.data.incidents, loading:false})
+                setData((data)=>({...data, allInfo: results.data.incidents, currentInfo: results.data.incidents, loading:false}))
+                //setData({...data, allInfo: results.data.incidents, currentInfo: results.data.incidents, loading:false})
             } catch (error) {
                 console.error(error)
             }
@@ -41,7 +38,7 @@ function Home (){
         getData();
 
     },[])
- */
+
     //dinamic search by title
     const searchByTitle = (e) =>{
         const filterRes = data.allInfo.filter( theft => theft.title.toLowerCase().includes(e.target.value.toLowerCase()))
@@ -122,7 +119,7 @@ function Home (){
                     selected={new Date (data.finalDate * 1000)} 
                     onChange={setFinalDate}
                     dateFormat='dd/MM/yyyy'
-                    maxDate={new Date}
+                    maxDate={new Date ()}
                     showYearDropdown
                     scrollableMonthYearDropdown
                     placeholderText="Click to select a date"                     
@@ -130,13 +127,11 @@ function Home (){
                 <button onClick={resetFilters} className='resetBtn'>Reset filters</button>
             </div>
             {
-                data.currentInfo.length>0 ?
+                data.loading === true && data.currentInfo.length === 0? <Loading/> : 
                 <div>
                     <CardGenerator currentPosts={currentPosts}/>
                     <Pagination postsPerPage={postsPerPage} totalPosts={data.currentInfo.length} paginate={paginate} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
                 </div>
-                :
-                <h3>Results not found, try again</h3>
             }
 
         </div>

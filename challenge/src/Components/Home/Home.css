@@ -27,7 +27,7 @@
     height: 30px;
     width: auto;
     border-radius: 5px;
-    border: 2px solid lightblue;
+    border: 1px solid lightblue;
     outline: none;
     transition: all 0.3s ease;
     padding: 5px;
@@ -36,7 +36,7 @@
 
 .filterContainer input:focus{
     border:1px solid lightseagreen;
-    box-shadow: 0 0 8px 0 lightseagreen; 
+    box-shadow: 0 0 7px 0 lightseagreen; 
 }
 
 .resetBtn{
