@@ -34,6 +34,10 @@
     margin-right: auto;
     margin-top: 40px;
     border-radius: 10px;
+    
+}
+.cardContainer Link{
+    text-decoration: none;
 }
 
 .textContainer{
@@ -42,6 +46,7 @@
     margin-left: 10px;
     align-items: flex-start;
 }
+
 
 
 .textContainer h4{

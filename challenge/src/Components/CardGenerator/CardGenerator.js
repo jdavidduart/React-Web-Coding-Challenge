@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './CardGenerator.css'
 
 function CardGenerator ({currentPosts}){
@@ -15,7 +16,8 @@ function CardGenerator ({currentPosts}){
         <div className='cardContainer'>
             {
                 currentPosts.map( (theft, index) => (
-                    <div key={index} className='cardWrap'>
+                    <Link to={`/${theft.id}`} key={index} style={{ textDecoration: 'none', color:'black' }}>
+                    <div  className='cardWrap'>
                         <div>
                             <img src={theft.media.image_url !== null ? theft.media.image_url : 'https://www.pngitem.com/pimgs/m/193-1937226_bike-png-icon-download-a-b-cycle-transparent.png'} alt='x' className='bikeImg'></img>
                         </div>
@@ -31,6 +33,7 @@ function CardGenerator ({currentPosts}){
                             <div className='locationWrap'><span className='location'>Location: </span>{theft.address}</div>
                         </div>
                     </div>
+                    </Link>
                 ))
             }
         </div>

@@ -1,0 +1,8 @@
+.detailContainer{
+    display: flex;
+    height: 200px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.1);
+    border-radius: 10px;
+    transition: transform 0.5s;
+    padding: 10px;
+}

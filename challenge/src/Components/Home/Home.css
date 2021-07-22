@@ -4,17 +4,7 @@
     margin-right: auto;
 }
 
-.homeContainer header{
-    display: flex;
-}
 
-.homeContainer header img{
-    height: 150px;
-}
-
-.homeContainer header div{
-    margin-left: 2rem;
-}
 
 .filterContainer{
     margin-top: 30px;
@@ -42,7 +32,7 @@
 .resetBtn{
     all: unset;
     font-size: 1rem;
-    padding: 10px;
+    padding: 0 10px 0 10px;
     border-radius: 5px;
     font-weight: bold;
     background-color: rgb(144, 211, 238);

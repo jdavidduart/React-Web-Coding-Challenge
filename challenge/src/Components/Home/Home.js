@@ -30,9 +30,9 @@ function Home (){
             try {
                 const results = await axios.get(baseUrl)
                 setData((data)=>({...data, allInfo: results.data.incidents, currentInfo: results.data.incidents, loading:false}))
-                //setData({...data, allInfo: results.data.incidents, currentInfo: results.data.incidents, loading:false})
             } catch (error) {
-                console.error(error)
+                setData((data)=>({...data, allInfo: datax.incidents, currentInfo: datax.incidents, loading:false}))
+                console.log(error)
             }
         }
         getData();
@@ -80,8 +80,8 @@ function Home (){
 
     const resetFilters = () => {
         setData({
-            allInfo:datax.incidents,
-            currentInfo:datax.incidents,
+            allInfo:data.allInfo,
+            currentInfo:data.allInfo,
             prevInfo:[],
             loading:true,
             searched:'',
@@ -94,14 +94,6 @@ function Home (){
 
     return(
         <div className='homeContainer'>
-            <header>
-                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Berliner_Polizei.svg/1200px-Berliner_Polizei.svg.png' alt='x'></img>
-                <div>
-                <h1>POLICE DEPARTAMENT OF BERLIN</h1>
-                <h2>Stolen bikes</h2>
-                </div>
-            </header>
-
             <div className='filterContainer'>
                 <input placeholder='Search case description' onChange={searchByTitle} value={data.searched || ''} data-testid='searchInput'></input>
                 <label>From:</label>

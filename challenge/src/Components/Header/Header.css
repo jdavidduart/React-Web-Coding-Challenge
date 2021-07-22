@@ -1,0 +1,17 @@
+.headerWrap{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header{
+    display: flex;
+}
+
+header img{
+    height: 150px;
+}
+
+header div{
+    margin-left: 2rem;
+}
