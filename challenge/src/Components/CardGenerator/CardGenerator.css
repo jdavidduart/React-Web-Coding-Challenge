@@ -68,3 +68,9 @@
 .locationWrap{
     margin-top: 8px;
 }
+
+@media (max-width:600px){
+    .bikeImg{
+        width: 200px;
+    }
+}

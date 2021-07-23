@@ -15,3 +15,11 @@ header img{
 header div{
     margin-left: 2rem;
 }
+
+
+@media (max-width: 600px){
+    .headerWrap{
+        width: auto;
+        font-size: 1rem;
+    }
+}
